@@ -1,36 +1,67 @@
-.calculadora {
-        margin-top: 40px;
-        border: solid 1px #000;
-        padding: 20px;
-        background-color: #2E2E2E;
-        border-radius: 10px;
-        box-shadow: 1px 1px 5px #000;
-      }
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #282c34;
+    margin: 0;
+}
 
-      .btn {
-        width: 60px;
-        height: 50px;
-        margin: 5px;
-        box-shadow: 1px 1px 1px #000;
-      }
+#calculadora {
+    border: 1px solid #555;
+    border-radius: 8px;
+    overflow: hidden;
+}
 
-      .clear {
-        width: 130px;
-      }
+table {
+    margin: auto;
+    background-color: rgb(44, 47, 51);
+    border-spacing: 5px; /* Adiciona espaço entre os botões */
+}
 
-      .enter {
-        height: 110px;
-      }
+#painel {
+    background-color: #505050;
+    color: #fff;
+    font-size: 24px;
+    text-align: right;
+    padding: 20px;
+    border-bottom: 1px solid #555;
+    grid-column: span 4; /* Faz o painel ocupar todas as colunas */
+    cursor: default; /* Mantém o display com o cursor padrão*/
+    user-select: none; /* Impede a seleção de texto */
+}
 
-      .zero {
-        width: 130px;
-      }
+table td {
+    width: 60px;
+    height: 60px;
+    background-color: rgb(97, 96, 96);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    /* Remove margens internas e bordas colapsadas para usar border-spacing */
+}
 
-      .resultado {
-        text-align: right;
-        font-size: 20px;
-        margin-top: 10px;
-        margin-bottom: 20px;
-        border: solid 1px #000;
-        box-shadow: 1px 1px 1px #000;
-      }
+table td:hover {
+    background-color: rgb(150, 150, 150);
+}
+
+/* Estilização específica para operadores e o botão CE para distingui-los */
+table td:is(.operator, #ce) {
+    background-color: #ff9500;
+    color: #fff;
+}
+
+table td:is(.operator, #ce):hover {
+    background-color: #ffa500; /* Cor de hover para botões de operadores */
+}
+
+/* Garante que a tabela não ocupe toda a largura da tela em dispositivos menores */
+@media (max-width: 600px) {
+    table {
+        width: 90%;
+        font-size: 18px;
+    }
+}
